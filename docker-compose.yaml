@@ -1,0 +1,33 @@
+---
+services:
+# frontend:
+#   build: registrar-ai-frontend/
+#   restart: always
+#   ports:
+#     - "3333:3000"
+#   command: npx dev
+  backend:
+    build: backend/
+    restart: always
+    ports:
+      - "5000:5000"
+    environment:
+      MONGODB_URI: "mongo:27017"
+      REDIS_URL: "redis://redis:6379"
+      # OPENAI_BASE_URL: "http://localhost:11434/v1"
+      OPENAI_API_KEY: "foo"
+      EMBEDDINGS_API_KEY: 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
+      EMBEDDINGS_API_URL: https://huggingface.co
+  redis:
+    image: "redis:alpine"
+    restart: always
+    ports:
+      - '6379:6379'
+  mongo:
+    image: mongo:6-jammy
+    ports:
+      - '27017:27017'
+    restart: always
+#   environment:
+#     MONGO_INITDB_ROOT_USERNAME: root
+#     MONGO_INITDB_ROOT_PASSWORD: example

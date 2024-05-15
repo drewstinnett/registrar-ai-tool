@@ -12,6 +12,7 @@ def create_app(config_class=Config):
     CORS(app, resources={
         r"/process_message": {
             "origins": [
+                "http://localhost",
                 "https://atlas-frontend-two.vercel.app",
                 "https://atlas-frontend-git-main-daniels-projects-a44d4a0e.vercel.app",
                 "https://atlas-frontend-faav82vd0-daniels-projects-a44d4a0e.vercel.app"
