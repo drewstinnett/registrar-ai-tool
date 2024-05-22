@@ -15,8 +15,9 @@ services:
       MONGODB_URI: "mongo:27017"
       REDIS_URL: "redis://redis:6379"
       OPENAI_BASE_URL: "http://localhost:11434/v1"
-      OPENAI_API_KEY: "foo"
-      EMBEDDINGS_API_KEY: foo
+      ## Keys should not be in this file, as it is commit'd to git. Instead use a .env file that is included in the .gitignore
+      # OPENAI_API_KEY: "foo"
+      # EMBEDDINGS_API_KEY: foo
       EMBEDDINGS_API_URL: https://huggingface.co
   redis:
     image: "redis:alpine"
